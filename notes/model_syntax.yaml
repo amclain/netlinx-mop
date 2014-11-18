@@ -1,0 +1,55 @@
+
+methods:
+- method_name:
+    description: ...
+    use_rpc: false
+    arguments:
+    - { name: "name", type: "string" }
+    - { name: "endpoint", type: "string" }
+    - ...
+    return: integer
+
+
+# Classes exist conceptually in the framework, but are intangible in NetLinx.
+# This enables object oriented programming practices to be used in the framework;
+# practices that are otherwise impossible in pure NetLinx.
+
+# In SanyoProjector_class.yaml
+name: SanyoProjector
+variables:
+  name: power_state
+functions:
+- power_on: ...
+- power_off: ...
+events:
+- button:
+    push:
+    - functions: ["power_on", "system.send_feedback"]
+
+
+# Classes can then be instantiated as objects, which is where things like
+# project-specific DPS's are assigned. This is also the place where instance
+# prefixes or suffixes would be applied to class function and variable names.
+# A certain degree of metaprogramming can also take place at this level, as
+# object-specific functions and variables can be defined.
+
+objects:
+- proj1:
+    class: SanyoProjector
+    dps: 123:56:98
+    dps: 
+      _: 123:56:98
+      later: 123:56:99
+      other: 123:56:100
+    functions:
+    - object_specific_function: ...
+
+
+event:
+  type: button
+  device: dvProjector
+  push:
+  - functions: ["SanyoProjector.power_on", "SanyoProjector.power_off"]
+
+# The crawler is responsible for interpolating SanyoProjector.power_on into
+# the generated NetLinx function name.
