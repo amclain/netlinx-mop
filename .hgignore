@@ -1,0 +1,9 @@
+# Ruby
+\.gem$
+doc/
+
+# NetLinx Binaries
+\.src$
+\.tkn$
+\.tko$
+\.zip$
