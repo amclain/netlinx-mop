@@ -7,10 +7,10 @@ variables:
   lamp_hours: integer
 
   power_state:
+    - "off"     # The first state is the initialized state.
     - "on"
-    - "off"
-    - "warming"
     - "cooling"
+    - "warming"
 
 
 functions:
