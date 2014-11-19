@@ -1,3 +1,4 @@
+require 'rspec/its'
 require 'netlinx/mop'
 require 'pry'
 
