@@ -1,0 +1,22 @@
+type: class
+name: SanyoProjector
+
+
+variables:
+
+  lamp_hours: integer
+
+  power_state:
+    - "off"     # The first state is the initialized state.
+    - "on"
+    - "cooling"
+    - "warming"
+
+
+functions:
+
+  power_on:
+    description: Turn on the projector.
+
+  power_off:
+    description: Turn off the projector.

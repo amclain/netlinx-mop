@@ -6,7 +6,7 @@ task :default => [:test]
 
 # Run tests.
 RSpec::Core::RakeTask.new :test do |c|
-  c.rspec_opts = '--color --format Fivemat'
+  c.rspec_opts = '--color'
 end
 
 # Build the gem.
