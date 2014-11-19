@@ -15,6 +15,7 @@ methods:
 # practices that are otherwise impossible in pure NetLinx.
 
 # In SanyoProjector_class.yaml
+type: class
 name: SanyoProjector
 variables:
   name: power_state
@@ -33,16 +34,16 @@ events:
 # A certain degree of metaprogramming can also take place at this level, as
 # object-specific functions and variables can be defined.
 
-objects:
-- proj1:
-    class: SanyoProjector
-    dps: 123:56:98
-    dps: 
-      _: 123:56:98
-      later: 123:56:99
-      other: 123:56:100
-    functions:
-    - object_specific_function: ...
+type: object
+proj1:
+  class: SanyoProjector
+  dps: 123:56:98
+  dps: 
+    _: 123:56:98
+    later: 123:56:99
+    other: 123:56:100
+  functions:
+  - object_specific_function: ...
 
 
 event:
@@ -53,3 +54,12 @@ event:
 
 # The crawler is responsible for interpolating SanyoProjector.power_on into
 # the generated NetLinx function name.
+
+
+
+# A type goes at the root level of each yaml file to signify how it will be used
+# (class, object). This prevents having to use a file suffix like "_class", or a
+# location in a specific directory. This makes packaging resuable classes easier,
+# and allows for easily dropping in such packages.
+
+type: ...

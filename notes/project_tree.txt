@@ -1,26 +1,28 @@
 
 / - Project root
-
+  
   config.yaml - Project & master info (includes M2M)
   device_map.yaml - Links DPS's to file names (IR, TP).
   
   duet/
-  	*.jar - Duet modules
+    *.jar - Duet modules
   ir/
     *.irl - IREdit files
   tp/
-  	*.tp4, *.tp5 - TPDesign files
+    *.tp4, *.tp5 - TPDesign files
   includes/
-  	*.axi - Generated include files for NetLinx
+    *.axi - Generated include files for NetLinx
   lib/
-  	*.rb - Supporting Ruby code for project.
+    *.rb - Supporting Ruby code for project.
   
   models/
     *.yaml
+    classes/ - (?)
+    objects/ - (?)
   crawlers/
-  	*.rb
+    *.rb
   templates/
-  	*.erb
+    *.erb
 
 
 Folders like duet, ir, tp, can have arbitrary subfolders.
