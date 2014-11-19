@@ -1,0 +1,79 @@
+// --------------------------------------------------------------
+// This file would be derived from the SanyoProjector.yaml model.
+// 
+// Actually, templates should be broken up into more fine-grained
+// tasks so that inserting new functionality into an existing
+// file is easier to do with an automated process.
+// --------------------------------------------------------------
+
+<%
+# This would be injected from a .rb file that loads this template.
+@project = Models[type:'project'].name
+@model   = Models[name:'SanyoProjector']
+%>
+
+(***********************************************************
+    <% @project.name %>
+    
+    <% @model.description %>
+************************************************************)
+
+<% include_guard_name = "#{@project.name}_#{@model.name}".upcase %>
+#if_not_defined <%= include_guard_name %>
+#define <%= include_guard_name %> 1
+(***********************************************************)
+(* System Type : NetLinx                                   *)
+(***********************************************************)
+(*           DEVICE NUMBER DEFINITIONS GO BELOW            *)
+(***********************************************************)
+DEFINE_DEVICE
+
+(***********************************************************)
+(*              CONSTANT DEFINITIONS GO BELOW              *)
+(***********************************************************)
+DEFINE_CONSTANT
+
+(***********************************************************)
+(*                    INCLUDES GO BELOW                    *)
+(***********************************************************)
+
+(***********************************************************)
+(*              DATA TYPE DEFINITIONS GO BELOW             *)
+(***********************************************************)
+DEFINE_TYPE
+
+(***********************************************************)
+(*              VARIABLE DEFINITIONS GO BELOW              *)
+(***********************************************************)
+DEFINE_VARIABLE
+
+<%=
+@model.variables.each do |var|
+	...
+end
+%>
+
+(***********************************************************)
+(*         SUBROUTINE/FUNCTION DEFINITIONS GO BELOW        *)
+(***********************************************************)
+
+(***********************************************************)
+(*                 STARTUP CODE GOES BELOW                 *)
+(***********************************************************)
+DEFINE_START
+
+(***********************************************************)
+(*                   THE EVENTS GO BELOW                   *)
+(***********************************************************)
+DEFINE_EVENT
+
+(***********************************************************)
+(*                 THE MAINLINE GOES BELOW                 *)
+(***********************************************************)
+DEFINE_PROGRAM
+
+(***********************************************************)
+(*                     END OF PROGRAM                      *)
+(*          DO NOT PUT ANY CODE BELOW THIS COMMENT         *)
+(***********************************************************)
+#end_if
