@@ -3,13 +3,20 @@ name: SanyoProjector
 
 
 variables:
-  power_state: integer
+
+  lamp_hours: integer
+
+  power_state:
+    - "on"
+    - "off"
+    - "warming"
+    - "cooling"
 
 
 functions:
 
   power_on:
     description: Turn on the projector.
-  
+
   power_off:
     description: Turn off the projector.
