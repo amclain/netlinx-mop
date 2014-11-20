@@ -26,8 +26,13 @@ module Mop
       alias_method :[], :find
       
       def select **kwargs
-        name = kwargs.fetch :name, nil
-        @list.select { |n| n.name == name }
+        list = @list
+        
+        kwargs.each do |k, v|
+          list = list.select { |node| node[k] == v }
+        end
+        
+        list
       end
       
       def all
