@@ -10,6 +10,8 @@ module Mop
       to_mop_model YAML.load_file file
     end
     
+    alias_method :each, :each_pair
+    
     private
     
     # This method does not dup nested hashes and will replace them.

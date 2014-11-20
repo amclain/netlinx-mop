@@ -10,7 +10,7 @@ module Mop
     end
     
     def process string
-      ERB.new(string).result(binding)
+      ERB.new(string, nil, '%<>-').result(binding)
     end
     
   end

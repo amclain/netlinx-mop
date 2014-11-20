@@ -31,15 +31,21 @@ DEFINE_TYPE
 (***********************************************************)
 DEFINE_VARIABLE
 
-<%=
-# @model.variables.each do |var|
-#     ...
-# end
-%>
+<% @model.variables.each do |name, type| -%>
+<%= type.is_a?(String) ? type : 'integer' %> <%= name %>;
+<% end -%>
 
 (***********************************************************)
 (*         SUBROUTINE/FUNCTION DEFINITIONS GO BELOW        *)
 (***********************************************************)
+
+<% @model.functions.each do |name, data| -%>
+// <%= data.description %>
+define_function <%= name %>() {
+	
+}
+
+<% end -%>
 
 (***********************************************************)
 (*                 STARTUP CODE GOES BELOW                 *)
