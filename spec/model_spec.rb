@@ -16,6 +16,8 @@ describe Mop::Model do
       end
     end
     
+    specify "map!"
+    
   end
   
 end

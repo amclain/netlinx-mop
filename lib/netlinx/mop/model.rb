@@ -12,6 +12,15 @@ module Mop
     
     alias_method :each, :each_pair
     
+    def map! &block
+      each_pair do |k, v|
+        self[k] = block.call k, v
+      end
+      
+      self
+    end
+    
+    
     private
     
     # This method does not dup nested hashes and will replace them.

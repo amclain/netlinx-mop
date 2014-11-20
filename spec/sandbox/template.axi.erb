@@ -17,6 +17,12 @@ DEFINE_DEVICE
 (***********************************************************)
 DEFINE_CONSTANT
 
+<% @model.constants.each do |name, a|
+        a.each_with_index do |const, i|
+-%>
+<%= "#{@model.name}_#{name}_#{const} = #{i};".upcase %>
+<% end; end -%>
+
 (***********************************************************)
 (*                    INCLUDES GO BELOW                    *)
 (***********************************************************)
@@ -31,18 +37,18 @@ DEFINE_TYPE
 (***********************************************************)
 DEFINE_VARIABLE
 
-<% @model.variables.each do |name, type| -%>
-<%= type.is_a?(String) ? type : 'integer' %> <%= name %>;
+<% @model.variables.each do |name, m| -%>
+<%= m.type %> <%= name %>;
 <% end -%>
 
 (***********************************************************)
 (*         SUBROUTINE/FUNCTION DEFINITIONS GO BELOW        *)
 (***********************************************************)
 
-<% @model.functions.each do |name, data| -%>
-// <%= data.description %>
+<% @model.functions.each do |name, m| -%>
+// <%= m.description %>
 define_function <%= name %>() {
-	
+    
 }
 
 <% end -%>
