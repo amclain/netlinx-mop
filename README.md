@@ -2,6 +2,8 @@
 
 A model-oriented programming approach to NetLinx.
 
+***This library has been superseded by [netlinx-erb](https://github.com/amclain/netlinx-erb).***
+
 
 ## Download
 
